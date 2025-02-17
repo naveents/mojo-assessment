@@ -7,8 +7,9 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: process.env.PORT || 5173,
+    base: "./",
     strictPort: true,
-    allowedHosts: 'all'
+    allowedHosts: 'facebook-client-react.onrender.com'
   },
   build: {
     outDir: 'dist',
