@@ -15,6 +15,7 @@ const app = express();
 
 const CLIENT_URL = process.env.CLIENT_URL || "https://localhost:3000";
 const SERVER_URL = process.env.SERVER_URL || "https://localhost:5000";
+const PORT = process.env.APP_PORT || 5000;
 app.use(cors({ origin: CLIENT_URL , credentials: true }));
 app.use(express.json());
 
@@ -23,7 +24,7 @@ passport.use(
         {
             clientID: process.env.FACEBOOK_APP_ID!,
             clientSecret: process.env.FACEBOOK_APP_SECRET!,
-            callbackURL: `${process.env.SERVER_URL}/auth/facebook/callback`,
+            callbackURL: `${SERVER_URL}/auth/facebook/callback`,
             profileFields: ["id", "displayName", "photos", "email"],
         },
         async (accessToken, refreshToken, profile, done) => {
@@ -88,12 +89,18 @@ app.get("/api/page-insights", authenticateJWT, async (req, res) => {
     }
 });
 
-
+//for local developent only!
+/*
 const options = {
     key: fs.readFileSync("./localhost-key.pem"),
     cert: fs.readFileSync("./localhost.pem"),
 };
 
+
 https.createServer(options, app).listen(5000, () => {
     console.log(`Server running on ${SERVER_URL}`);
+}); */
+
+app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT} `);
 });
