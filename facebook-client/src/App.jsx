@@ -1,4 +1,4 @@
-import Facebook from "./Pages/Facebook";
+import Facebook from "./Pages/Facebook"
 
 export default function App() {
   //const x = 23;
