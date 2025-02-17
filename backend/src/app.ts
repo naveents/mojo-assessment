@@ -39,6 +39,10 @@ passport.use(
     )
 );
 
+app.get("/info", async(req, res) => {
+    res.json("Facebook login - API");
+})
+
 app.get(
     "/auth/facebook",
     passport.authenticate("facebook", { scope: ["email", "public_profile", "pages_show_list"] })
