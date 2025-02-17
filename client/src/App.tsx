@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route, Routes, Navigate, useSearchParams } from "react-router-dom";
 
-const API_BASE = "https://localhost:5000";
+const API_BASE = "https://mojo-assessment.onrender.com";
 
 const Login = () => {
   return (
