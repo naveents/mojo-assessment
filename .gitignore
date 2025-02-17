@@ -31,4 +31,4 @@
 /backend/localhost-key.pem
 /backend/localhost.pem
 
-/client/node_modules
+/facebook-client/node_modules
